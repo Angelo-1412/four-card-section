@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --Red: hsl(0, 78%, 62%);
+  --Cyan: hsl(180, 62%, 55%);
+  --Orange: hsl(34, 97%, 64%);
+  --Blue: hsl(212, 86%, 64%);
+  --Grey500: hsl(234, 12%, 34%);
+  --Grey400: hsl(212, 6%, 44%);
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box-container {
+  border: 1px solid;
+  margin-top: 1rem;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: 1fr;
+  gap: 0.5em;
+}
+
+.box {
+  border: 1px solid;
+  text-align: center;
+  font-size: clamp(1rem, 0.296rem + 3.005vw, 3rem);
+  color: var(--Grey500);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box:hover {
+  color: snow;
+  cursor: pointer;
+}
+
+.box1 {
+  background-color: var(--Cyan);
+  align-self: center;
+}
+
+.box2 {
+  background-color: var(--Red);
+}
+
+.box3 {
+  background-color: var(--Orange);
+}
+
+.box4 {
+  background-color: var(--Blue);
+  align-self: center;
+}
+
+@media (width >= 40em) {
+  .box-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "c o" "r b";
+  }
+
+  .box1 {
+    grid-area: c;
+  }
+
+  .box2 {
+    grid-area: r;
+  }
+
+  .box3 {
+    grid-area: o;
+  }
+
+  .box4 {
+    grid-area: b;
+  }
+}
+
+@media (width >= 60em) {
+  .box-container {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas: ". . r r . ." "c c r r b b" "c c o o b b" ". . o o . .";
+  }
+}
